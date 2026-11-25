@@ -30,6 +30,9 @@ class PlottareSistemAPP(ctk.CTk):
 
         self.buton_export = ctk.CTkButton(rama_jos, text="Export", width=30)
         self.buton_export.pack(side="left", padx=20, pady=10)
+
+    def _plottare(self):
+        
                                          
 if __name__ == "__main__":
     app = PlottareSistemAPP()
