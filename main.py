@@ -25,8 +25,11 @@ class PlottareSistemAPP(ctk.CTk):
         rama_jos = ctk.CTkFrame(self)
         rama_jos.pack(fill="x", padx=15, pady=(5,15))
 
-        self.buton_pauza = ctk.CTkButton(rama_jos,text="Pause", width=30)
+        self.buton_pauza = ctk.CTkButton(rama_jos, text="Pause", width=30)
         self.buton_pauza.pack(side="left", padx=15, pady=10)
+
+        self.buton_export = ctk.CTkButton(rama_jos, text="Export", width=30)
+        self.buton_export.pack(side="left", padx=20, pady=10)
                                          
 if __name__ == "__main__":
     app = PlottareSistemAPP()
