@@ -32,6 +32,13 @@ class PlottareSistemAPP(ctk.CTk):
         self.buton_export.pack(side="left", padx=20, pady=10)
 
     def _plottare(self):
+        plt.style.use("dark_background")
+        self.fig, (self.ax_cpu, self.ax_ram) = plt.subplots(2, 1, figsize=(8, 5), dpi=100)
+        self.fig.patch.set_facecolor("#2b2b2b")
+
+        self.canvas = FigureCanvasTkAgg(self.fig, master=self.rama_plot)
+        self.canvas.get_tk_widget().pack(fill="both", expand=True)
+        
         
                                          
 if __name__ == "__main__":
