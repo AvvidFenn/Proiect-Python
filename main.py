@@ -1,4 +1,9 @@
 import customtkinter as ctk
+import psutil
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.animation import FuncAnimation
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
@@ -8,8 +13,15 @@ class PlottareSistemAPP(ctk.CTk):
         super().__init__()
         self.title("Monitor Sistem Live")
         self.geometry("950x620")
-        self._ui()
+        
+        self.max_sec = 60                                                      
+        self.valori_timp = deque(maxlen=self.max_sec)     
+        self.data_cpu = deque(maxlen=self.max_sec)        
+        self.data_ram = deque(maxlen=self.max_sec)
 
+        self._ui()
+        self._plottare()
+                              
     def _ui(self):
         rama_sus = ctk.CTkFrame(self)
         rama_sus.pack(fill="x", padx=15, pady=(15,5))
@@ -38,8 +50,6 @@ class PlottareSistemAPP(ctk.CTk):
 
         self.canvas = FigureCanvasTkAgg(self.fig, master=self.rama_plot)
         self.canvas.get_tk_widget().pack(fill="both", expand=True)
-        
-        
                                          
 if __name__ == "__main__":
     app = PlottareSistemAPP()
