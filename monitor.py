@@ -4,6 +4,6 @@ from datetime import datetime
 def citeste_parametrii():
    return {
         "timestamp": datetime.now().strftime("%H:%M:%S"),
-        "cpu": psutil.cpu_la_suta(interval=None),
-        "ram": psutil.memorie_virtuala().percent,
+        "cpu": psutil.cpu_percent(interval=None),
+        "ram": psutil.virtual_memory().percent,
     }
