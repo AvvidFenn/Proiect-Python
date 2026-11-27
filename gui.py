@@ -13,6 +13,13 @@ class PlottareSistemAPP(ctk.CTk):
         self.title("Monitor Sistem Live")
         self.geometry("950x620")
 
+        self.max_points = 60
+        self.timestamps = deque(maxlen=self.max_points)
+        self.cpu_data = deque(maxlen=self.max_points)
+        self.ram_data = deque(maxlen=self.max_points)
+        self.full_history = []
+        self.is_paused = False
+        
         self._ui()
         self._plottare()
 
